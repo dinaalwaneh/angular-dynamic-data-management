@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild ,AfterViewInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import { LocalStorageService } from 'src/app/local-storage.service';
 import { User } from 'src/app/models/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table-component',
@@ -13,22 +14,37 @@ export class TableComponent implements OnInit {
 
   @ViewChild('paginator',{static:true}) paginator!: MatPaginator;
 
-  constructor(private localStorage:LocalStorageService) {}
+  constructor(private router: Router, private localStorage:LocalStorageService) {}
 
   displayedColumns: string[]=[] ;
   dataSource : any;
   originalData = new Map<number, User>();
 
+  content:boolean = true;
   ngOnInit(): void {
     this.displayedColumns =  ['id', 'firstname', 'secondname', 'lastname', 'age','action'];
-    this.loadDataFromIndexedDB();
+   /* let users = [
+      { id: 1, firstName: 'Dina', secondName: 'Bader', finalName: 'Alwaneh', age: 22, isEdit: false },
+      { id: 2, firstName: 'Sara', secondName: 'Murad', finalName: 'Alwaneh', age: 80, isEdit: false },
+      { id: 3, firstName: 'Ahmad', secondName: 'Bader', finalName: 'Alwaneh', age: 30, isEdit: false },
+      { id: 4, firstName: 'Mai', secondName: 'Ameer', finalName: 'Alwaneh', age: 11, isEdit: false },
+      { id: 5, firstName: 'Suha', secondName: 'Majd', finalName: 'Alwaneh', age: 10, isEdit: false },
+      { id: 6, firstName: 'Asala', secondName: 'Ahmas', finalName: 'Alwaneh', age: 22, isEdit: false }
+    ];
 
+    users.forEach(user => {
+      this.localStorage.addNewUser(user);
+    });*/
+    this.loadDataFromIndexedDB();
   }
+
+
 
   async loadDataFromIndexedDB() {
     try {
       const allData = await this.localStorage.getAllData();
       this.dataSource = new MatTableDataSource(allData);
+      this.content = this.dataSource.data.length > 0;
       this.dataSource.paginator = this.paginator;
     } catch (error) {
       console.error('Error retrieving data:', error);
@@ -36,11 +52,8 @@ export class TableComponent implements OnInit {
   }
 
   deleteRow(rowId: number) {
-    const itemIndex = this.dataSource.data.findIndex((obj: { id: number; }) => obj.id === rowId);
-    if (itemIndex >= 0) {
       this.localStorage.deleteUserById(rowId);
       this.loadDataFromIndexedDB();
-    }
   }
 
   updateRow(rowData: any) {
@@ -77,5 +90,9 @@ export class TableComponent implements OnInit {
       this.localStorage.editUser(this.originalData.get(row.id));
       this.loadDataFromIndexedDB();
     }
+  }
+
+  navigateToOtherComponent() {
+    this.router.navigate(['/form']);
   }
 }

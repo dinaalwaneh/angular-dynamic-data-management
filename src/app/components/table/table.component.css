@@ -30,3 +30,16 @@ h1{
   color: rgba(255, 255, 255, 0.909);
   text-shadow: 3px 3px 4px red, -3px -3px 4px blue;
 }
+
+.no-users{
+  text-align: center;
+  font-weight: bold;
+  color:rgb(39, 38, 38);
+}
+
+
+.button-custom-style{
+  display: block;
+  background-color: rgb(166, 230, 120);
+  margin:auto; color: rgb(31, 30, 30);
+}
