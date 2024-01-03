@@ -1,0 +1,32 @@
+table {
+  width: 80%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.232);
+}
+
+mat-paginator{
+  width: 80%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.641);
+}
+
+body{
+  background-color: rgba(255, 255, 255, 0.26);
+}
+
+th.mat-header-cell ,td.mat-cell {
+  text-align: center;
+}
+
+.form-control{
+  width: 200px;
+  height: 33px;
+  margin: auto;
+  box-shadow: none;
+}
+
+h1{
+  text-align: center;
+  color: rgba(255, 255, 255, 0.909);
+  text-shadow: 3px 3px 4px red, -3px -3px 4px blue;
+}
