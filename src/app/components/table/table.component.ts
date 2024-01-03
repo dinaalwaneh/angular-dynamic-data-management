@@ -6,10 +6,10 @@ import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-table-component',
-  templateUrl: './table-component.component.html',
-  styleUrls: ['./table-component.component.css']
+  templateUrl: './table.component.html',
+  styleUrls: ['./table.component.css']
 })
-export class TableComponentComponent implements OnInit {
+export class TableComponent implements OnInit {
 
   @ViewChild('paginator',{static:true}) paginator!: MatPaginator;
 
@@ -21,8 +21,6 @@ export class TableComponentComponent implements OnInit {
 
   ngOnInit(): void {
     this.displayedColumns =  ['id', 'firstname', 'secondname', 'lastname', 'age','action'];
-    let user  = {id:1,firstName:'dina', secondName:'sara', finalName:'barahma',age:12,isEdit: false }
-    this.localStorage.addNewUser(user);
     this.loadDataFromIndexedDB();
 
   }
@@ -69,15 +67,14 @@ export class TableComponentComponent implements OnInit {
 
   cancelEdit(row: any){
     if (this.originalData.has(row.id)) {
-      const index = this.dataSource.data.findIndex((obj: { id: number; }) => obj.id === row.id);
-      if (index >= 0) {
-        this.localStorage.editUser(this.originalData.get(row.id));
-        this.loadDataFromIndexedDB();
-      }
-      // Clear the stored original data and exit edit mode
-      this.originalData.delete(row.id);
-      row.isEdit = false;
-      this.localStorage.editUser(row);
+      const user : any= this.originalData.get(row.id);
+
+      // Update the property
+      user.isEdit = false;
+
+      // Put the updated user object back in the map
+      this.originalData.set(row.id, user);
+      this.localStorage.editUser(this.originalData.get(row.id));
       this.loadDataFromIndexedDB();
     }
   }

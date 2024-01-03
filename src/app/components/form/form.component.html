@@ -1,0 +1,37 @@
+
+<body>
+  <div class="space"></div>
+  <h1>Add New User</h1>
+  <form [formGroup]="customerform">
+  <mat-card>
+    <mat-card-content>
+      <mat-form-field class="mat-50">
+        <mat-label>ID</mat-label>
+        <input type="number" formControlName="id" matInput>
+      </mat-form-field>
+      <mat-form-field class="mat-50">
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstName" matInput>
+      </mat-form-field>
+      <mat-form-field class="mat-50">
+        <mat-label>Second Name</mat-label>
+        <input formControlName="secondName" matInput>
+      </mat-form-field>
+      <mat-form-field class="mat-50">
+        <mat-label>Last Name</mat-label>
+        <input formControlName="finalName" matInput>
+      </mat-form-field>
+      <mat-form-field class="mat-50">
+        <mat-label>Age</mat-label>
+        <input type="number" formControlName="age" matInput>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-footer>
+      <div style=" margin: 2%; text-align: right;">
+        <button mat-raised-button type="submit" (click)="saveCustomer()" color="primary">Save</button>
+        <button mat-raised-button color="warn" (click)="clearform()">Clear</button>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</form>
+</body>

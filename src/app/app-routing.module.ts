@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TableComponentComponent } from './components/table-component/table-component.component';
+import { TableComponent } from './components/table/table.component';
+import { FormComponent } from './components/form/form.component';
 
 const routes: Routes = [
-  {path:"users", component: TableComponentComponent},
-  { path: '', redirectTo: '/users', pathMatch: 'full' },
+  {path:"users", component: TableComponent},
+  {path: '', redirectTo: '/users', pathMatch: 'full' },
+  {path:"form", component: FormComponent}
 ];
 
 @NgModule({

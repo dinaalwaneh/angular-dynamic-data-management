@@ -8,19 +8,19 @@
     <ng-container matColumnDef="firstname">
       <th mat-header-cell *matHeaderCellDef> First Name </th>
       <td mat-cell *matCellDef="let element"><p  *ngIf="!element.isEdit" >{{element.firstName}}</p>
-       <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.firstname" placeholder="First Name">
+       <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.firstName" placeholder="First Name">
       </td>
     </ng-container>
     <ng-container matColumnDef="secondname">
       <th mat-header-cell *matHeaderCellDef> Second Name </th>
       <td mat-cell *matCellDef="let element"><p *ngIf="!element.isEdit">{{element.secondName}}</p>
-        <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.lastname" placeholder="Last Name">
+        <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.secondName" placeholder="Last Name">
       </td>
     </ng-container>
     <ng-container matColumnDef="lastname">
       <th mat-header-cell *matHeaderCellDef> Last Name </th>
       <td mat-cell *matCellDef="let element"><p *ngIf="!element.isEdit">{{element.finalName}}</p>
-        <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.secondname" placeholder="Second Name">
+        <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.finalName" placeholder="Second Name">
       </td>
     </ng-container>
     <ng-container matColumnDef="age">

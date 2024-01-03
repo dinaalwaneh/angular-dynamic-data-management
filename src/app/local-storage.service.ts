@@ -44,7 +44,6 @@ export class LocalStorageService {
       const transaction = await db.transaction("users", "readwrite");
       const store = await transaction.objectStore("users");
       const request = await store.getAll();
-      console.log("get alll ",request)
       request.onsuccess = await function (event:any) {
          if(event.target.result){
             console.log("success get all data",event.target.result);
