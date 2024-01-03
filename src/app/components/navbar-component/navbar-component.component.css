@@ -1,0 +1,16 @@
+body {
+  background-image: url('../../../assets/images/html_table.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+mat-toolbar{
+  position: fixed;
+  background-color:  #2b1ba587 ;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
+
