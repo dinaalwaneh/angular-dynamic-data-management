@@ -2,7 +2,7 @@ export interface User {
   id: number;
   firstName: string;
   secondName: string;
-  finalName: string;
+  lastName: string;
   age: number;
   isEdit: boolean;
 }

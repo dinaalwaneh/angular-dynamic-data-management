@@ -11,11 +11,11 @@ export class FormComponent implements OnInit {
 
   constructor(private builder:FormBuilder, private localStorage:LocalStorageService) {}
 
-  customerform = this.builder.group({
+  userform = this.builder.group({
     id: this.builder.control('',Validators.required),
     firstName: this.builder.control('',Validators.required),
     secondName: this.builder.control('',Validators.required),
-    finalName: this.builder.control('',Validators.required),
+    lastName: this.builder.control('',Validators.required),
     age: this.builder.control('',Validators.required),
     isEdit:this.builder.control(false)
   });
@@ -23,11 +23,11 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {}
 
   saveCustomer(){
-    this.localStorage.addNewUser(this.customerform.value);
+    this.localStorage.addNewUser(this.userform.value);
   }
 
   clearform(){
-    this.customerform.reset();
+    this.userform.reset();
   }
 
 }

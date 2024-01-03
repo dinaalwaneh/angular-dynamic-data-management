@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild ,AfterViewInit} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatPaginator} from '@angular/material/paginator';
 import { LocalStorageService } from 'src/app/local-storage.service';
@@ -23,18 +23,18 @@ export class TableComponent implements OnInit {
   content:boolean = true;
   ngOnInit(): void {
     this.displayedColumns =  ['id', 'firstname', 'secondname', 'lastname', 'age','action'];
-   /* let users = [
-      { id: 1, firstName: 'Dina', secondName: 'Bader', finalName: 'Alwaneh', age: 22, isEdit: false },
-      { id: 2, firstName: 'Sara', secondName: 'Murad', finalName: 'Alwaneh', age: 80, isEdit: false },
-      { id: 3, firstName: 'Ahmad', secondName: 'Bader', finalName: 'Alwaneh', age: 30, isEdit: false },
-      { id: 4, firstName: 'Mai', secondName: 'Ameer', finalName: 'Alwaneh', age: 11, isEdit: false },
-      { id: 5, firstName: 'Suha', secondName: 'Majd', finalName: 'Alwaneh', age: 10, isEdit: false },
-      { id: 6, firstName: 'Asala', secondName: 'Ahmas', finalName: 'Alwaneh', age: 22, isEdit: false }
-    ];
+    /*let users = [
+        { id: 10, firstName: 'Dina', secondName: 'Bader', lastName: 'Alwaneh', age: 22, isEdit: false },
+        { id: 2, firstName: 'Sara', secondName: 'Murad', lastName: 'Alwaneh', age: 80, isEdit: false },
+        { id: 3, firstName: 'Ahmad', secondName: 'Bader', lastName: 'Alwaneh', age: 30, isEdit: false },
+        { id: 4, firstName: 'Mai', secondName: 'Ameer', lastName: 'Alwaneh', age: 11, isEdit: false },
+        { id: 5, firstName: 'Suha', secondName: 'Majd', lastName: 'Alwaneh', age: 10, isEdit: false },
+        { id: 6, firstName: 'Asala', secondName: 'Ahmas', lastName: 'Alwaneh', age: 22, isEdit: false }
+      ];
 
-    users.forEach(user => {
-      this.localStorage.addNewUser(user);
-    });*/
+      users.forEach(user => {
+        this.localStorage.addNewUser(user);
+      });*/
     this.loadDataFromIndexedDB();
   }
 

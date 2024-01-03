@@ -1,6 +1,6 @@
 <body   style="padding-top: 100px;">
   <div *ngIf="!content">
-    <p class="no-users">There is no users added, plz click this button for adding ones</p>
+    <p class="no-users">There is no users added, plz click on this button for adding ones</p>
     <button class="btn btn-sm button-custom-style" (click)="navigateToOtherComponent()">Add New User</button>
   </div>
   <div [hidden]="dataSource.data.length === 0">
@@ -24,8 +24,8 @@
       </ng-container>
       <ng-container matColumnDef="lastname">
         <th mat-header-cell *matHeaderCellDef> Last Name </th>
-        <td mat-cell *matCellDef="let element"><p *ngIf="!element.isEdit">{{element.finalName}}</p>
-          <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.finalName" placeholder="Second Name">
+        <td mat-cell *matCellDef="let element"><p *ngIf="!element.isEdit">{{element.lastName}}</p>
+          <input type="text" class="form-control" *ngIf="element.isEdit" [(ngModel)]="element.lastName" placeholder="Second Name">
         </td>
       </ng-container>
       <ng-container matColumnDef="age">
